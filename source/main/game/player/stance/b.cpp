@@ -4,6 +4,8 @@
 
 #include <zed/camera.h>
 
+void game_player_queue_interrupt( game_player & );
+
 void game_player_stance_hide( game_player &player ) {
 	switch ( player.stance ) {
 		case stance_jog:
@@ -43,6 +45,8 @@ void game_player_stance_dropkick( game_player &player ) {
 }
 
 void game_player_stance_hide_raise( game_player &player ) {
+	player.b_menu_handled = true;
+
 	// todo switching to tall while moving causes or can cause you to trip on nothing
 
 	switch ( player.stance ) {
@@ -69,6 +73,9 @@ void game_player_stance_hide_raise( game_player &player ) {
 		case stance_jog:
 		case stance_run:
 		game_player_stance_dropkick( player );
+
+		default:
+		player.b_menu_handled = false;
 	}
 }
 
@@ -83,6 +90,8 @@ void game_player_stance_slide( game_player &player ) {
 }
 
 void game_player_stance_hide_lower( game_player &player ) {
+	player.b_menu_handled = true;
+
 	switch ( player.stance ) {
 		case stance_walk:   player.stance = stance_stalk;  break;
 		case stance_stalk:  player.stance = stance_crouch; break;
@@ -98,12 +107,16 @@ void game_player_stance_hide_lower( game_player &player ) {
 		case stance_run:
 		game_player_stance_slide( player );
 		break;
+
+		default:
+		player.b_menu_handled = false;
 	}
 }
 
 void game_player_stance_spin_right( game_player &player ) {
 	zed_camera &camera = game.data.camera[ player.i ];
 	if ( player.stance == stance_jog or player.stance == stance_run ) return;
+	player.b_menu_handled = true;
 	camera.rotation.y += 90;
 	// player.hint = hint_spin;
 	game_player_hands_unholster( player );
@@ -130,6 +143,7 @@ void game_player_stance_spin_right( game_player &player ) {
 void game_player_stance_spin_left( game_player &player ) {
 	zed_camera &camera = game.data.camera[ player.i ];
 	if ( player.stance == stance_jog or player.stance == stance_run ) return;
+	player.b_menu_handled = true;
 
 	bool forward = false;
 
@@ -201,18 +215,10 @@ void game_player_stance_b_step( game_player &player ) {
 		}
 
 		if ( player.pad.joy_1.z < 0 or player.pad.s and not player.pad_previous.s ) {
-			player.b_menu_handled = true;
 			game_player_stance_hide_lower( player );
 		}
 
-		if ( player.pad.w and not player.pad_previous.w ) {
-			player.b_menu_handled = true;
-			game_player_stance_spin_left( player );
-		}
-
-		if ( player.pad.e and not player.pad_previous.e ) {
-			player.b_menu_handled = true;
-			game_player_stance_spin_right( player );
-		}
+		if ( player.pad.w and not player.pad_previous.w ) game_player_stance_spin_left ( player );
+		if ( player.pad.e and not player.pad_previous.e ) game_player_stance_spin_right( player );
 	}
 }
