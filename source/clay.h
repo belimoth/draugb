@@ -1,5 +1,6 @@
 #pragma once
 
+#include "clay/edit.h"
 #include "clay/studio.h"
 #include "main/game.h"
 
@@ -12,10 +13,7 @@ struct clay_edit_model {
 
 	zed_mesh mesh;
 
-	// explore
 
-	char *paths[3];
-	int paths_count = sizeof( paths ) / sizeof( paths[0] );
 
 	int path = 0;
 
@@ -135,6 +133,7 @@ struct clay_t {
 	clay_page_view page_view;
 	clay_page_edit page_edit;
 
+	clay_edit       edit;
 	clay_edit_model edit_model;
 } clay;
 

@@ -5,8 +5,8 @@
 #include <zed/app/ui.h>
 
 string el_table_edit_get_data( int x, int y ) {
-	if ( x == 0 and y < array_count( clay.edit_model.paths ) ) {
-		return clay.edit_model.paths[y];
+	if ( x == 0 and y < array_count( clay.edit.path ) ) {
+		return clay.edit.path[y];
 	}
 
 	return "";
@@ -37,9 +37,7 @@ void el_table_edit() {
 	ui_element_bind( clay.ui.data_edit, el_table_edit_on_ui_event );
 	ui_element_set_table();
 
-	el_table_edit_row();
-	el_table_edit_row();
-	el_table_edit_row();
+	for ( int i = 0; i < clay.edit.path_i; i++ ) el_table_edit_row();
 
 	ui_element_finish( id );
 }

@@ -5,8 +5,8 @@
 #include "../ui.h"
 
 string el_table_find_get_data( int x, int y ) {
-	if ( x == 0 and y < array_count( clay.edit_model.paths ) ) {
-		return clay.edit_model.paths[y];
+	if ( x == 0 and y < array_count( clay.edit.path ) ) {
+		return clay.edit.path[y];
 	}
 
 	return "";
@@ -36,9 +36,7 @@ void el_table_find() {
 	ui_element_bind( clay.ui.data_find, el_table_find_on_ui_event );
 	ui_element_set_table();
 
-	el_table_find_row();
-	el_table_find_row();
-	el_table_find_row();
+	for ( int i = 0; i < clay.edit.path_i; i++ ) el_table_find_row();
 
 	ui_element_finish( id );
 }

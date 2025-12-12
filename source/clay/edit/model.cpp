@@ -112,9 +112,10 @@ void edit_model_on_ui_event( ui_event event ) {
 void clay_edit_model_init() {
 	studio_init();
 
-	clay.edit_model.paths[0] = "data/model/enemy.obj";
-	clay.edit_model.paths[1] = "data/model/player.obj";
-	clay.edit_model.paths[2] = "data/model/shotgun.obj";
+	clay.edit.path[ clay.edit.path_i++ ] = "data/model/enemy.obj";
+	clay.edit.path[ clay.edit.path_i++ ] = "data/model/player.obj";
+	clay.edit.path[ clay.edit.path_i++ ] = "data/model/shotgun.obj";
+	clay.edit.path[ clay.edit.path_i++ ] = "game/demo.world";
 }
 
 void clay_edit_model_step() {
