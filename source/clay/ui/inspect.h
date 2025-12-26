@@ -24,7 +24,7 @@ string el_table_layers_get_data( int x, int y ) {
 //
 
 void el_table_layers_row() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_step_node *self = ui.data.step_nodes + ui.id_current;
 	clay_ui_draw_button();
 
@@ -46,7 +46,7 @@ void el_table_layers_row() {
 //
 
 void el_table_layers() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_bind( clay.ui.data_layers, el_table_layers_on_ui_event );
 	ui_element_set_table( 48 );
 
@@ -89,7 +89,7 @@ void el_table_inspect_head( string text ) {
 }
 
 void el_table_inspect_row() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_step_node *self = ui.data.step_nodes + ui.id_current;
 	clay_ui_draw_button();
 
@@ -109,7 +109,7 @@ void el_table_inspect_row() {
 //
 
 void el_table_inspect() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_bind( clay.ui.data_inspect, el_table_inspect_on_ui_event );
 	ui_element_set_table( 48 );
 
@@ -134,7 +134,7 @@ void el_palette_on_ui_event( ui_event event ) {
 //
 
 void el_palette() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_bind( clay.ui.data_palette, el_palette_on_ui_event );
 	el_finish;
 }
@@ -142,7 +142,7 @@ void el_palette() {
 //
 
 void el_debug() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_step_node *self = ui.data.step_nodes + ui.id_current;
 
 	sprintf( table_buffer, "%f", clay.camera.rotation.x ); clay_ui_text( table_buffer, color_fg ); self->child_position.y += self->child_size.y;
@@ -155,7 +155,7 @@ void el_debug() {
 //
 
 void el_column_inspect() {
-	int id = ui_element_start();
+	el_start;
 	clay_ui_draw_fill();
 	ui_element_set_block();
 	ui_element_set_padding(2);

@@ -15,7 +15,7 @@ string el_table_edit_get_data( int x, int y ) {
 }
 
 void el_table_edit_row() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_step_node *self = ui.data.step_nodes + ui.id_current;
 	clay_ui_draw_button();
 	// clay_ui_draw_fill();
@@ -42,7 +42,7 @@ void el_table_edit_on_ui_event( ui_event event ) {
 }
 
 void el_table_edit() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_bind( clay.ui.data_edit, el_table_edit_on_ui_event );
 	ui_element_set_table();
 
@@ -52,7 +52,7 @@ void el_table_edit() {
 }
 
 void el_column_edit() {
-	int id = ui_element_start();
+	el_start;
 	clay_ui_draw_fill();
 	ui_element_set_block();
 	ui_element_set_padding(2);

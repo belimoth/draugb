@@ -12,7 +12,7 @@ string el_table_view_get_data( int x, int y ) {
 }
 
 void el_table_view_row() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_step_node *self = ui.data.step_nodes + ui.id_current;
 	clay_ui_draw_button();
 	// clay_ui_draw_fill();
@@ -42,7 +42,7 @@ void el_table_view_on_ui_event( ui_event event ) {
 }
 
 void el_table_view() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_bind( clay.ui.data_view, el_table_view_on_ui_event );
 	ui_element_set_table( 48 );
 
@@ -52,7 +52,7 @@ void el_table_view() {
 }
 
 void el_column_view() {
-	int id = ui_element_start();
+	el_start;
 	clay_ui_draw_fill();
 	ui_element_set_block();
 	ui_element_set_padding(2);

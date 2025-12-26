@@ -12,7 +12,7 @@
 // }
 //
 // void el_table_play_row() {
-// 	int id = ui_element_start();
+// 	el_start;
 // 	ui_element_step_node *self = ui.data.step_nodes + ui.id_current;
 // 	clay_ui_draw_button();
 // 	// clay_ui_draw_fill();
@@ -42,7 +42,7 @@
 // }
 //
 // void el_table_play() {
-// 	int id = ui_element_start();
+// 	el_start;
 // 	ui_element_bind( clay.ui.data_play, el_table_play_on_ui_event );
 // 	ui_element_set_table( 48 );
 //
@@ -52,7 +52,7 @@
 // }
 
 void el_column_play() {
-	int id = ui_element_start();
+	el_start;
 	clay_ui_draw_fill();
 	ui_element_set_block();
 	ui_element_set_padding(2);

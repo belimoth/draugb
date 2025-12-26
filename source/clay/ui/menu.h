@@ -6,7 +6,7 @@
 #include "../ui.h"
 
 void el_menu_row( string text ) {
-	int id = ui_element_start();
+	el_start;
 	ui_element_step_node *self = ui.data.step_nodes + ui.id_current;
 	clay_ui_draw_button();
 	self->child_position.x += 16;
@@ -56,7 +56,7 @@ void el_menu_on_ui_event( ui_event event ) {
 }
 
 void el_column_menu() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_bind( clay.ui.data_menu, el_menu_on_ui_event );
 	clay_ui_draw_fill();
 	ui_element_set_table( 96 );

@@ -15,7 +15,7 @@ string el_table_assets_get_data( int x, int y ) {
 }
 
 void el_table_assets_row() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_step_node *self = ui.data.step_nodes + ui.id_current;
 	clay_ui_draw_fill();
 
@@ -29,7 +29,7 @@ void el_table_assets_row() {
 }
 
 void el_table_assets() {
-	int id = ui_element_start();
+	el_start;
 	int tabs = 8;
 	int size = 560;
 	int flex[] = { 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2 };
@@ -44,7 +44,7 @@ void el_table_assets() {
 }
 
 void el_column_main() {
-	int id = ui_element_start();
+	el_start;
 	ui_element_step_node *self = ui.data.step_nodes + id;
 	self->handle_ui_event = edit_model_on_ui_event;
 	// clay_ui_draw_fill();
