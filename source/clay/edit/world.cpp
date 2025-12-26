@@ -5,7 +5,7 @@
 #include "../../main/game/draw.h"
 
 #include "world.h"
-#include "world/tools.cpp"
+#include "world/tool.cpp"
 #include "world/ui.cpp"
 
 #include <zed/app.h>

@@ -13,8 +13,6 @@ struct clay_edit_model {
 
 	zed_mesh mesh;
 
-
-
 	int path = 0;
 
 	// camera
@@ -67,6 +65,8 @@ struct clay_ui {
 	ui_element_data data_edit;
 	ui_element_data data_find;
 
+	ui_element_data data_tool;
+
 	ui_element_data data_layers;
 	ui_element_data data_inspect;
 	ui_element_data data_palette;
@@ -89,7 +89,6 @@ enum clay_page_menu {
 	clay_page_menu_itch = 5,
 	clay_page_menu_user = 6,
 };
-
 
 string view_names[] = {
 	"Game",
@@ -119,6 +118,18 @@ enum clay_page_edit {
 	clay_page_edit_world,
 };
 
+
+struct clay_edit_tool {
+
+};
+
+string clay_edit_tool_name[64];
+
+struct clay_tool {
+	clay_edit_tool tool[64];
+	int tool_i;
+};
+
 struct clay_t {
 	bool show;
 
@@ -135,6 +146,8 @@ struct clay_t {
 
 	clay_edit       edit;
 	clay_edit_model edit_model;
+
+	clay_tool tool;
 } clay;
 
 struct {

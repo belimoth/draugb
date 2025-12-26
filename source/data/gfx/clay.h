@@ -18,7 +18,8 @@ void clay_gfx_init() {
 
 	clay.gfx.pass_wireframe.rs = rasterizer_states.wireframe;
 
-	// zed_mesh_new( clay.edit_model.mesh, clay.edit_model.paths[ clay.edit_model.path ] );
+	// zed_mesh_new( clay.edit_model.mesh, clay.edit.path[ clay.edit_model.path ] );
+	zed_mesh_new( clay.edit_model.mesh, "data/model/enemy.obj" );
 
 	game.camera.position.y = 1.0;
 	clay.edit_model.cursor_start = game.camera.position;

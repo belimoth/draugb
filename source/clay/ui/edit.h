@@ -1,7 +1,9 @@
 #pragma once
 
+#include "../../clay.h"
 #include "../ui.h"
 
+#include <zed.h>
 #include <zed/app/ui.h>
 
 string el_table_edit_get_data( int x, int y ) {
@@ -30,6 +32,13 @@ void el_table_edit_row() {
 
 void el_table_edit_on_ui_event( ui_event event ) {
 	handle_ui_event_for_list( event, &clay.ui.data_edit );
+
+	int id = clay.ui.data_edit.id_target;
+	// clay.edit_model.paths[ clay.edit_model.path ];
+	clay.scene = clay_scene_edit_model;
+	int c = strcmp( "data/model", clay.edit.path[ id ]  );
+	printf( "%i", c );
+	// if ( c == 0 )
 }
 
 void el_table_edit() {
@@ -49,6 +58,7 @@ void el_column_edit() {
 	ui_element_set_padding(2);
 
 	el_header( "EDIT" );
+	el_address();
 	el_table_edit();
 
 	ui_element_finish( id );

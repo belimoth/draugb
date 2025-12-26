@@ -82,3 +82,31 @@ void el_border() {
 	clay_ui_draw_border();
 	ui_element_finish( id );
 }
+
+void el_input_interior() {
+	int id = ui_element_start();
+	clay_ui_draw_fill();
+	ui_element_finish( id );
+}
+
+void el_input() {
+	int id = ui_element_start();
+	clay_ui_draw_border();
+	ui_element_set_block();
+	ui_element_set_padding( 2 );
+
+	el_input_interior();
+
+	ui_element_finish( id );
+}
+
+void el_address() {
+	int id = ui_element_start();
+	ui_element_set_block();
+	ui_element_set_height( 96 );
+	ui_element_set_padding( 16, 0 );
+
+	el_input();
+
+	ui_element_finish( id );
+}

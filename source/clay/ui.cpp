@@ -14,7 +14,7 @@
 #include "ui/itch.h"
 #include "ui/user.h"
 
-#include "ui/tools.h"
+#include "ui/tool.h"
 #include "ui/main.h"
 #include "ui/inspect.h"
 
@@ -55,7 +55,7 @@ void el_root() {
 			case clay_page_edit_model:
 			el_column_edit();
 			el_border();
-			el_column_tools();
+			el_column_tool();
 			el_border();
 			el_column_main();
 			el_border();
