@@ -291,7 +291,6 @@ void game_menu_draw( game_menu &menu ) {
 		case game_menu_page_options_audio:
 		case game_menu_page_options_data:
 		case game_menu_page_pause:
-		default:
 		draw_title();
 		break;
 

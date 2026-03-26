@@ -41,7 +41,7 @@ int chapter_current  = chapter_none;
 // int chapter_continue = chapter_blue_monsoon;
 // int chapter_continue = chapter_blood_flush;
 // int chapter_continue = chapter_cryoshock;
-// int chapter_continue = chapter_draugb;
+int chapter_continue = chapter_draugb;
 // int chapter_continue = chapter_full_metal_express;
 // int chapter_continue = chapter_gate_quake;
 // int chapter_continue = chapter_hazard_company;
@@ -50,7 +50,7 @@ int chapter_current  = chapter_none;
 // int chapter_continue = chapter_plastic_platoon;
 // int chapter_continue = chapter_primitive_streak;
 // int chapter_continue = chapter_red_cry;
-int chapter_continue = chapter_swat_city;
+// int chapter_continue = chapter_swat_city;
 // int chapter_continue = chapter_swat_city_x;
 // int chapter_continue = chapter_threefold_path;
 
