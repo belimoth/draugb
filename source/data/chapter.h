@@ -27,7 +27,7 @@ enum game_chapter {
 	// chapter_red_cry,
 	// chapter_route_66,
 	// chapter_swat_city,
-	// chapter_swat_city_300,
+	// chapter_swat_city_3000,
 	// chapter_threefold_path,
 	// chapter_wuerm_arctigeddon,
 	// chapter_wuerm_arctigeddon_modern,
@@ -37,11 +37,11 @@ enum game_chapter {
 
 int chapter_current  = chapter_none;
 
-// int chapter_continue = chapter_alien_intel;
+int chapter_continue = chapter_alien_intel;
 // int chapter_continue = chapter_blue_monsoon;
 // int chapter_continue = chapter_blood_flush;
 // int chapter_continue = chapter_cryoshock;
-int chapter_continue = chapter_draugb;
+// int chapter_continue = chapter_draugb;
 // int chapter_continue = chapter_full_metal_express;
 // int chapter_continue = chapter_gate_quake;
 // int chapter_continue = chapter_hazard_company;

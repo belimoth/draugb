@@ -186,11 +186,11 @@ void theme_init() {
 	theme[ chapter_swat_city                ].color_text_bg_active = 0;
 	theme[ chapter_swat_city                ].color_text_fg_active = 0;
 
-	theme[ chapter_swat_city_300            ].color_bg             = 0;
-	theme[ chapter_swat_city_300            ].color_text_bg        = 0;
-	theme[ chapter_swat_city_300            ].color_text_fg        = 0;
-	theme[ chapter_swat_city_300            ].color_text_bg_active = 0;
-	theme[ chapter_swat_city_300            ].color_text_fg_active = 0;
+	theme[ chapter_swat_city_3000           ].color_bg             = 0;
+	theme[ chapter_swat_city_3000           ].color_text_bg        = 0;
+	theme[ chapter_swat_city_3000           ].color_text_fg        = 0;
+	theme[ chapter_swat_city_3000           ].color_text_bg_active = 0;
+	theme[ chapter_swat_city_3000           ].color_text_fg_active = 0;
 
 	theme[ chapter_threefold_path           ].color_bg             = 0;
 	theme[ chapter_threefold_path           ].color_text_bg        = 0;

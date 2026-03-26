@@ -48,7 +48,176 @@ int   t_bmt_flash = 0;
 int   i_bmt_flash = 0;
 char *c_bmt_flash = "__x_x____x__x_x_xxx_x___x";
 
+
+void draw_title_alien_intel() {
+	zed_canvas_fill( canvas_x1, 0xBD0029 );
+	zed_pass_use( texture_title_alien_intel_0 );
+	draw_title_layer();
+	zed_pass_use( texture_title_alien_intel_1 );
+	draw_title_layer();
+}
+
+void draw_title_alien_intel_classic() {
+	zed_canvas_fill( canvas_x1, 0xBD0029 );
+	zed_pass_use( texture_title_alien_intel_classic );
+	draw_title_layer();
+	zed_pass_use( texture_title_alien_intel_0 );
+	draw_title_layer();
+	zed_pass_use( texture_title_alien_intel_1 );
+	draw_title_layer();
+}
+
+void draw_title_draugb() {
+	zed_pass_use( texture_title_draugb );
+	draw_title_layer();
+}
+
+void draw_title_blood_flush() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_blood_flush );
+	draw_title_layer();
+}
+
+void draw_title_blood_flush_vintage() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+}
+
+void draw_title_blue_monsoon() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_blue_monsoon_0 );
+	draw_title_layer();
+
+	t_bmt_flash += 1;
+
+	if ( t_bmt_flash >= 50 ) {
+		t_bmt_flash = 0;
+		i_bmt_flash = ( i_bmt_flash + 1 ) % 24;
+	}
+
+	if ( c_bmt_flash[i_bmt_flash] == 'x' ) {
+		zed_pass_use( texture_title_blue_monsoon_2 );
+	} else {
+		zed_pass_use( texture_title_blue_monsoon_1 );
+	}
+
+	draw_title_layer();
+}
+
+void draw_title_cryoshock() {
+	zed_canvas_fill( canvas_x1, 0xECFFFA );
+	zed_pass_use( texture_title_cryoshock );
+	draw_title_layer();
+}
+
+void draw_title_full_metal_express() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_full_metal_express );
+	draw_title_layer();
+}
+
+void draw_title_gate_quake_classic() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_gate_quake );
+	draw_title_layer();
+}
+
+void draw_title_gate_quake() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_gate_quake );
+	draw_title_layer();
+}
+
+void draw_title_gate_quake_4000() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_gate_quake );
+	draw_title_layer();
+}
+
+void draw_title_hazard_company() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_hazard_company );
+	draw_title_layer();
+}
+
+void draw_title_horse_war() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_horse_war );
+	draw_title_layer();
+}
+
+void draw_title_horse_war_3000() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+
+}
+
+void draw_title_howling_commandos() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_howling_commandos );
+	draw_title_layer();
+}
+
+void draw_title_plastic_platoon() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_plastic_platoon );
+	draw_title_layer();
+}
+
+void draw_title_primitive_streak() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_primitive_streak );
+	draw_title_layer();
+}
+
+void draw_title_red_cry() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+}
+
+void draw_title_route_66() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_route_66 );
+	draw_title_layer();
+}
+
+void draw_title_swat_city() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+
+	t_bmt_flash += 1;
+
+	if ( t_bmt_flash >= 100 ) {
+		t_bmt_flash = 0;
+		i_bmt_flash = ( i_bmt_flash + 1 ) % 24;
+	}
+
+	if ( c_bmt_flash[i_bmt_flash] == '_' ) {
+		zed_pass_use( texture_title_swat_city_0 );
+		draw_title_layer();
+	}
+
+	zed_pass_use( texture_title_swat_city_1 );
+	draw_title_layer();
+}
+
+void draw_title_swat_city_3000() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+}
+
+void draw_title_threefold_path() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+	zed_pass_use( texture_title_threefold_path );
+	draw_title_layer();
+}
+
+void draw_title_wuerm_arctigeddon() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+}
+
+void draw_title_wuerm_arctigeddon_modern() {
+	zed_canvas_fill( canvas_x1, 0x000000 );
+}
+
 void draw_title() {
+	zed_pass_reset( pass_title );
+
 	switch ( chapter_current ) {
 		case chapter_none:
 
@@ -57,42 +226,7 @@ void draw_title() {
 		} else {
 			zed_canvas_fill( canvas_x1, 0xF7E557 );
 		}
-
-		break;
-
-		case chapter_alien_intel_classic:
-		case chapter_alien_intel:
-		zed_canvas_fill( canvas_x1, 0xBD0029 );
-		break;
-
-		case chapter_blue_monsoon:
-		zed_canvas_fill( canvas_x1, 0x000000 );
-		break;
-
-		case chapter_blood_flush:              zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_blood_flush_vintage:      zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_cryoshock:                zed_canvas_fill( canvas_x1, 0xECFFFA ); break;
-		case chapter_draugb:                   zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_full_metal_express:       zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_gate_quake_classic:       zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_gate_quake:               zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_gate_quake_4000:          zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_hazard_company:           zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_horse_war:                zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_horse_war_3000:           zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_howling_commandos:        zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_plastic_platoon:          zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_primitive_streak:         zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_red_cry:                  zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_route_66:                 zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_swat_city:                zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_swat_city_300:            zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_threefold_path:           zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_wuerm_arctigeddon:        zed_canvas_fill( canvas_x1, 0x000000 ); break;
-		case chapter_wuerm_arctigeddon_modern: zed_canvas_fill( canvas_x1, 0x000000 ); break;
 	}
-
-	zed_pass_reset( pass_title );
 
 	if ( chapter_current == chapter_none ) {
 		game_menu_page page = game.menu[0].state.page;
@@ -127,70 +261,10 @@ void draw_title() {
 		}
 	}
 
-	switch ( chapter_current ) {
-		case chapter_alien_intel_classic:
-		zed_pass_use( texture_title_alien_intel_classic );
-		draw_title_layer();
-		case chapter_alien_intel:
-		zed_pass_use( texture_title_alien_intel_0 );
-		draw_title_layer();
-		zed_pass_use( texture_title_alien_intel_1 );
-		draw_title_layer();
-		break;
-
-		case chapter_blue_monsoon:
-		zed_pass_use( texture_title_blue_monsoon_0 );
-		draw_title_layer();
-
-		t_bmt_flash += 1;
-
-		if ( t_bmt_flash >= 50 ) {
-			t_bmt_flash = 0;
-			i_bmt_flash = ( i_bmt_flash + 1 ) % 24;
-		}
-
-		if ( c_bmt_flash[i_bmt_flash] == 'x' ) {
-			zed_pass_use( texture_title_blue_monsoon_2 );
-		} else {
-			zed_pass_use( texture_title_blue_monsoon_1 );
-		}
-
-		draw_title_layer();
-		break;
-
-		case chapter_draugb:
-		zed_pass_use( texture_title_draugb );
-		draw_title_layer();
-		break;
-
-		case chapter_swat_city:
-		t_bmt_flash += 1;
-
-		if ( t_bmt_flash >= 100 ) {
-			t_bmt_flash = 0;
-			i_bmt_flash = ( i_bmt_flash + 1 ) % 24;
-		}
-
-		if ( c_bmt_flash[i_bmt_flash] == '_' ) {
-			zed_pass_use( texture_title_swat_city_0 );
-			draw_title_layer();
-		}
-
-		zed_pass_use( texture_title_swat_city_1 );
-		draw_title_layer();
-		break;
-
-		case chapter_blood_flush:        zed_pass_use( texture_title_blood_flush        ); draw_title_layer(); break;
-		case chapter_cryoshock:          zed_pass_use( texture_title_cryoshock          ); draw_title_layer(); break;
-		case chapter_full_metal_express: zed_pass_use( texture_title_full_metal_express ); draw_title_layer(); break;
-		case chapter_gate_quake:         zed_pass_use( texture_title_gate_quake         ); draw_title_layer(); break;
-		case chapter_hazard_company:     zed_pass_use( texture_title_hazard_company     ); draw_title_layer(); break;
-		case chapter_horse_war:          zed_pass_use( texture_title_horse_war          ); draw_title_layer(); break;
-		case chapter_howling_commandos:  zed_pass_use( texture_title_howling_commandos  ); draw_title_layer(); break;
-		case chapter_plastic_platoon:    zed_pass_use( texture_title_plastic_platoon    ); draw_title_layer(); break;
-		case chapter_primitive_streak:   zed_pass_use( texture_title_primitive_streak   ); draw_title_layer(); break;
-		case chapter_route_66:           zed_pass_use( texture_title_route_66           ); draw_title_layer(); break;
-		case chapter_threefold_path:     zed_pass_use( texture_title_threefold_path     ); draw_title_layer(); break;
+	switch( chapter_current ) {
+		#define field( name ) case chapter_##name: draw_title_##name(); break;
+		#include "../../../data/chapter.inl"
+		#undef field
 	}
 }
 
